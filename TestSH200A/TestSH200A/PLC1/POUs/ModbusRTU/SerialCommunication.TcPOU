@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="SerialCommunication" Id="{0ccba658-6098-44cc-b0b1-6a25f831f82f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM SerialCommunication
+VAR
+	COMportControl: SerialLineControl;
+	COMportControlError: BOOL;
+	COMportControlErrorID: ComError_t;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*==================================================================
+	Background communication with KL6001 terminal
+	The SerialLineControl function block is supposed to be called in every PLC cycle.
+	It communicates with the serial line hardware device and transmits or receives data.
+	The SerialLineControl can be called in the standard task or in a separate fast task as well.
+	A fast separate task will be necessary at high baud rates or 
+	with KL6001 terminals which have a small process image (3 or 5 data bytes only)
+*)
+COMportControl(
+	Mode:= SERIALLINEMODE_EL6_22B,
+	pComIn:= ADR(COMin_EL60xx),			(* I/O data; see global variables *)
+	pComOut:= ADR(COMout_EL60xx),		(* I/O data; see global variables *)
+	SizeComIn:= SIZEOF(COMin_EL60xx),	(* I/O data; see global variables *)
+	TxBuffer:= TxBuffer,				(* transmit buffer; see global variables *)
+	RxBuffer:= RxBuffer,				(* receive buffer; see global variables *)
+	Error=> COMportControlError,
+	ErrorID=> COMportControlErrorID );]]></ST>
+    </Implementation>
+    <LineIds Name="SerialCommunication">
+      <LineId Id="20" Count="15" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

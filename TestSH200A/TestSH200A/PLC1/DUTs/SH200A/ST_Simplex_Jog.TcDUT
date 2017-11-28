@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_Simplex_Jog" Id="{812b92bb-dca2-4002-a93a-c2bf29ddff67}">
+    <Declaration><![CDATA[TYPE ST_Simplex_Jog :
+STRUCT
+	fbTimerWriteModbus		: TON;		// Timer for writing values to Modbus
+	bWriteControlOption		: BOOL;		// First state, define control mode
+		nControlSetting		: UINT := 21; // Default value is set to position ramp control
+	bWriteSetpointSpeed		: BOOL; 	// Second state, define maximum speed
+		nMaxVelocity		: INT; 		// Maximum allowed velocity
+		bSettingsDone		: BOOL;
+	bJogForward				: BOOL;		// Third state, jogging forwards
+	bJogBackwards			: BOOL;		// Fourth state, jogging backwards
+		fbTimerWritePosition : TON;
+		bSendPosition_MSB	: BOOL; // New setpoint sent to the motor Register! 
+		bSendPosition_LSB	: BOOL; // New setpoint sent to the motor Register!
+		bReadPosition		: BOOL;	// State inside jogg (all data is sent) 
+	dnPosition				: DINT; // Current position of the motor
+	
+	//fAcceleration:LREAL;
+	//fDeceleration:LREAL;
+	//fJerk:LREAL;
+	bDone	: BOOL;
+	bBusy	: BOOL;
+	bActive	: BOOL;
+	bCommandAborted	: BOOL;
+	bError	 : BOOL;
+	nErrorID : UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

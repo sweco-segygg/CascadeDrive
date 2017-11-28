@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <GVL Name="ModbusRTU" Id="{90d88027-1d1e-42e9-bf5b-041a6c4681e8}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	COMin_EL60XX AT %I* : KL6InData22B;
+	COMout_EL60XX AT %Q* : KL6OutData22B;
+	RxBuffer: Combuffer;
+	TxBuffer: Combuffer;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

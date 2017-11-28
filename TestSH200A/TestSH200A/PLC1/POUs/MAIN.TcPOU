@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="MAIN" Id="{a6f35caf-0754-4117-99e9-4db78ebe9f31}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbSH200A : FB_Simplex();
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbSH200A.M_Jog();
+//fbSH200A.M_LogValues();
+SerialCommunication();
+//fbSH200A();]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="8" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

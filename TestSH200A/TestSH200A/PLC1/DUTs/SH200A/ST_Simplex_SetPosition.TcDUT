@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_Simplex_SetPosition" Id="{e1159210-1436-4b46-88da-ede1ebf431d1}">
+    <Declaration><![CDATA[TYPE ST_Simplex_SetPosition :
+STRUCT
+	bExecute:BOOL;
+	fPosition:LREAL;
+	bMode:BOOL;
+	//	stOptions:ST_SetPositionOptions;
+	bDone:BOOL;
+	bBusy:BOOL;
+	bError:BOOL;
+	nErrorID:UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

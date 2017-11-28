@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_Simplex_Stop" Id="{4b38ed63-afa0-4a87-b26b-7086856393a2}">
+    <Declaration><![CDATA[TYPE ST_Simplex_Stop :
+STRUCT
+	bExecute:BOOL;
+	fDeceleration:LREAL;
+	fJerk:LREAL;
+	//stOptions:ST_MoveOptions;
+	bDone:BOOL;
+	bBusy:BOOL;
+	bActive:BOOL;
+	bCommandAborted:BOOL;
+	bError:BOOL;
+	nErrorID:UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

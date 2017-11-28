@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <DUT Name="ST_Simplex_Halt" Id="{1deddee4-1d00-4b74-9a1d-956eedfbd1b4}">
+    <Declaration><![CDATA[TYPE ST_Simplex_Halt :
+STRUCT
+	nMotorFluxVoltage : INT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
